@@ -1,6 +1,4 @@
-> [!CAUTION]
-> С 29.02.2024 разработка проекта завершена. Инструментарий будет поддерживаться в актуальном и рабочем состоянии, но
-> правки в основной код вноситься не будут.
+
 
 [![Code Smells][code_smells_badge]][code_smells_link]
 [![Maintainability Rating][maintainability_rating_badge]][maintainability_rating_link]
@@ -13,9 +11,7 @@
 [![Technical Debt][technical_debt_badge]][technical_debt_link]
 [![Lines of Code][lines_of_code_badge]][lines_of_code_link]
 
-Dwarven Realm - аддон к моду "Властелин колец" для Minecraft 1.7.10. Добавляет две новые фракции - гномы Красных гор и
-гномы гор Ветра, а также весь связанный с ними контент: мобы, достижения, путевые точки, дороги, щиты, флаги, блоки,
-предметы, структуры, зоны влияния...
+Lord of Eldar Mod
 
 <!----------------------------------------------------------------------------->
 
