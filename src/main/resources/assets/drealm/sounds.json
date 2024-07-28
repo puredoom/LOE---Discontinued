@@ -1,0 +1,14 @@
+{
+    "mumakil.growl": {
+        "category": "neutral",
+        "sounds": [
+            "mumakil/growl"
+        ]
+    },
+    "mumakil.scream": {
+        "category": "neutral",
+        "sounds": [
+            "mumakil/scream"
+        ]
+    }
+}
