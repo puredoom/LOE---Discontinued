@@ -13,6 +13,8 @@ public final class PowerModItems
     public static Item wrench;
     public static Item catapult;
     public static Item fireProjectile;
+
+    public static Item hwacha;
     
     private PowerModItems() {
     }
@@ -21,6 +23,7 @@ public final class PowerModItems
         register(PowerModItems.rock = (Item)new ItemRock("rock"), "rock");
         register(PowerModItems.wrench = (Item)new ItemWrench("wrench"), "wrench");
         register(PowerModItems.catapult = (Item)new ItemCatapult("catapult"), "catapult");
+        register(PowerModItems.hwacha = (Item)new ItemHwacha("hwacha"), "hwacha");
         register(PowerModItems.fireProjectile = (Item)new ItemFireProjectile("fireProjectile"), "fireProjectile");
     }
     

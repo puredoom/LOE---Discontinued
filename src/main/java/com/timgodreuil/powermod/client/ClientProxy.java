@@ -6,6 +6,7 @@ package com.timgodreuil.powermod.client;
 
 import com.timgodreuil.powermod.shared.*;
 import cpw.mods.fml.client.registry.*;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import net.minecraft.client.renderer.entity.*;
 import com.timgodreuil.powermod.client.render.entities.*;
 import com.timgodreuil.powermod.shared.entities.*;
@@ -23,6 +24,7 @@ public class ClientProxy extends CommonProxy
     public void preInit(final FMLPreInitializationEvent e) {
         super.preInit(e);
         RenderingRegistry.registerEntityRenderingHandler((Class)EntityCatapult.class, (Render)new RenderEntityCatapult());
+        RenderingRegistry.registerEntityRenderingHandler((Class)EntityHwacha.class, (Render) new RenderEntityHwacha());
         RenderingRegistry.registerEntityRenderingHandler((Class)EntityRock.class, (Render)new RenderEntityRock());
         RenderingRegistry.registerEntityRenderingHandler((Class)EntityFireProjectile.class, (Render)ClientProxy.RENDER);
     }

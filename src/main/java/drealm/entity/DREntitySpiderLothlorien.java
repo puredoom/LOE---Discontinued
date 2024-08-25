@@ -18,6 +18,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import lotr.common.LOTRAchievement;
@@ -43,7 +45,7 @@ public class DREntitySpiderLothlorien extends LOTREntitySpiderBase {
     }
 
     public float getAlignmentBonus() {
-        return 1.0F;
+        return 0.0F;
     }
 
     protected void dropFewItems(final boolean p_70628_1_, final int p_70628_2_) {
@@ -58,6 +60,26 @@ public class DREntitySpiderLothlorien extends LOTREntitySpiderBase {
         if (this.rand.nextFloat() < 0.15) {
             this.dropItem(DRRegistry.spiderfang, 1);
         }
+    }
+
+    public boolean attackEntityAsMob(Entity entity) {
+        if (super.attackEntityAsMob(entity)) {
+            if (entity instanceof EntityLivingBase) {
+                int difficulty = this.worldObj.difficultySetting.getDifficultyId();
+                int duration = difficulty * (difficulty + 5) / 2;
+                if (duration > 0) {
+                        ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.poison.id, duration * 20, 0));
+                }
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(400.0);
     }
 
     protected boolean canRideSpider() {

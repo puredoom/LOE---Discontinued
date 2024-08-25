@@ -17,6 +17,7 @@ public class PowerModEntities
         register((Class<? extends Entity>)EntityCatapult.class, "catapult", 1030, 200, 10, true);
         register((Class<? extends Entity>)EntityRock.class, "rock", 1031, 100, 10, true);
         register((Class<? extends Entity>)EntityFireProjectile.class, "fireProjectile", 1032, 200, 10, true);
+        register((Class<? extends Entity>)EntityHwacha.class, "hwacha", 1033, 200, 10, true);
     }
     
     private static void register(final Class<? extends Entity> entityClass, final String name, final int id, final int updateRange, final int updateFreq, final boolean sendVelocityUpdates) {

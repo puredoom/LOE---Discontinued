@@ -66,10 +66,10 @@ public class DREntityEnt extends LOTREntityTree {
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(350.0);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(24.0);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2);
-        this.getEntityAttribute(npcAttackDamage).setBaseValue(7.0);
+        this.getEntityAttribute(npcAttackDamage).setBaseValue(1.0);
     }
 
     public LOTRFaction getFaction() {

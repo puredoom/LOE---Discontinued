@@ -43,7 +43,7 @@ public class DREntityDunlandBear extends LOTREntityHorse
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(MathHelper.getRandomDoubleInRange(this.rand, 0.12, 0.15));
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(MathHelper.getRandomDoubleInRange(this.rand, 200.0, 500.0));
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(700.0);
     }
 
 
@@ -103,6 +103,14 @@ public class DREntityDunlandBear extends LOTREntityHorse
     public void onLivingUpdate() {
         super.onLivingUpdate();
         if (!this.worldObj.isRemote) {
+            if (this.isMountSaddled() && this.getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue() != 180.0) {
+                this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(180.0);
+                this.setHealth(180.0f);
+            }
+            if (!this.isMountSaddled() && this.getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue() != 700.0) {
+                this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(700.0);
+                this.setHealth(700.0f);
+            }
             if (this.riddenByEntity instanceof EntityLivingBase) {
                 final EntityLivingBase rhinoRider = (EntityLivingBase)this.riddenByEntity;
                 final float momentum = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);

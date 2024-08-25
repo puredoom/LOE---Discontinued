@@ -8,11 +8,13 @@ import drealm.database.DRRegistry;
 import lotr.common.LOTRMod;
 import lotr.common.LOTRReflection;
 import lotr.common.entity.LOTREntities;
+import lotr.common.entity.ai.LOTREntityAIAttackOnCollide;
 import lotr.common.entity.animal.LOTREntityHorse;
 import lotr.common.entity.npc.LOTRNPCMount;
 import lotr.common.item.LOTRItemMountArmor;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -34,6 +36,7 @@ public class DREntityBoar extends LOTREntityHorse
     private byte temper;
     private boolean prevIsChild;
 
+
     public DREntityBoar(final World world) {
         super(world);
         this.prevIsChild = true;
@@ -43,7 +46,7 @@ public class DREntityBoar extends LOTREntityHorse
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(MathHelper.getRandomDoubleInRange(this.rand, 0.12, 0.15));
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(MathHelper.getRandomDoubleInRange(this.rand, 200.0, 500.0));
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(400);
     }
 
 
@@ -103,6 +106,14 @@ public class DREntityBoar extends LOTREntityHorse
     public void onLivingUpdate() {
         super.onLivingUpdate();
         if (!this.worldObj.isRemote) {
+            if (this.isMountSaddled() && this.getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue() != 120.0) {
+                this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(120.0);
+                this.setHealth(120.0f);
+            }
+            if (!this.isMountSaddled() && this.getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue() != 400.0) {
+                this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(400.0);
+                this.setHealth(400.0f);
+            }
             if (this.riddenByEntity instanceof EntityLivingBase) {
                 final EntityLivingBase rhinoRider = (EntityLivingBase)this.riddenByEntity;
                 final float momentum = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);

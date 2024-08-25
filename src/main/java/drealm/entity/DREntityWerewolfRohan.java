@@ -54,9 +54,9 @@ public class DREntityWerewolfRohan extends EntityMob {
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(400.0);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2);
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(2.0);
     }
 
     protected void entityInit() {

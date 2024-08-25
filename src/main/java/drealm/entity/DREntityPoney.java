@@ -43,7 +43,7 @@ public class DREntityPoney extends LOTREntityHorse
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(MathHelper.getRandomDoubleInRange(this.rand, 0.12, 0.15));
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(MathHelper.getRandomDoubleInRange(this.rand, 200.0, 500.0));
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
     }
 
 

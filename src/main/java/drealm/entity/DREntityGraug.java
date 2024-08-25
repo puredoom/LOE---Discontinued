@@ -71,9 +71,9 @@ public class DREntityGraug
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0);
+        getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1200.0);
         getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2);
-        getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0);
+        getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(3.0);
     }
 
     public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {

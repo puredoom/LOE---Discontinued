@@ -50,7 +50,7 @@ public class DREntityTrollGundabad extends LOTREntityHorse
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(MathHelper.getRandomDoubleInRange(this.rand, 0.12, 0.15));
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(MathHelper.getRandomDoubleInRange(this.rand, 200.0, 500.0));
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1300.0);
     }
     
     public EntityAgeable createChild(final EntityAgeable entity) {
@@ -121,6 +121,14 @@ public class DREntityTrollGundabad extends LOTREntityHorse
     public void onLivingUpdate() {
         super.onLivingUpdate();
         if (!this.worldObj.isRemote) {
+            if (this.isMountSaddled() && this.getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue() != 400.0) {
+                this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(400.0);
+                this.setHealth(400.0f);
+            }
+            if (!this.isMountSaddled() && this.getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue() != 1300.0) {
+                this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1300.0);
+                this.setHealth(1300.0f);
+            }
             if (this.riddenByEntity instanceof EntityLivingBase) {
                 final EntityLivingBase rhinoRider = (EntityLivingBase)this.riddenByEntity;
                 final float momentum = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
