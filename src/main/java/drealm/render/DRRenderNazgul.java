@@ -34,27 +34,6 @@ public class DRRenderNazgul extends RenderLiving {
 
     }
 
-    protected float handleRotationFloat(EntityLivingBase entity, float f) {
-        DREntityNazgul bird = (DREntityNazgul)entity;
-        return bird.isBirdStill() && bird.flapTime > 0 ? (float)bird.flapTime - f : super.handleRotationFloat(entity, f);
-    }
-
-    protected void renderEquippedItems(EntityLivingBase entity, float f) {
-        DREntityNazgul bird = (DREntityNazgul)entity;
-        if (renderStolenItem) {
-            GL11.glColor3f(1.0F, 1.0F, 1.0F);
-            ItemStack stolenItem = bird.getStolenItem();
-            if (stolenItem != null) {
-                GL11.glPushMatrix();
-                GL11.glTranslatef(0.05F, 1.4F, -0.1F);
-                float scale = 0.25F;
-                GL11.glScalef(scale, scale, scale);
-                this.renderManager.itemRenderer.renderItem(entity, stolenItem, 0);
-                GL11.glPopMatrix();
-            }
-        }
-
-    }
     static {
         Textures = new ResourceLocation("drealm", "mob/nazgul.png");
     }

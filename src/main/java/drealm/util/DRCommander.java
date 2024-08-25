@@ -79,7 +79,7 @@ public class DRCommander
     }
 
     public static void addAnimals(final Class entity, final int number1, final int number4, final int number6, final LOTRBiome biome) {
-        EntityRegistry.addSpawn(entity, number1, number4, number6, EnumCreatureType.monster, new BiomeGenBase[] { (BiomeGenBase)biome });
+        EntityRegistry.addSpawn(entity, number1, number4, number6, EnumCreatureType.creature, new BiomeGenBase[] { (BiomeGenBase)biome });
     }
 
     
