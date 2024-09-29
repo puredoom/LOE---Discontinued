@@ -42,6 +42,14 @@ public class DREntityBoar extends LOTREntityHorse
         this.prevIsChild = true;
         this.setSize(2.4f, 1.5f);
     }
+
+    protected boolean isMountHostile() {
+        return true;
+    }
+
+    protected EntityAIBase createMountAttackAI() {
+        return new LOTREntityAIAttackOnCollide(this, 1.5, true);
+    }
     
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();

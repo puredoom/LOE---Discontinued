@@ -1,8 +1,10 @@
 
 package drealm.entity;
 
+import lotr.common.entity.ai.LOTREntityAIAttackOnCollide;
 import lotr.common.entity.animal.*;
 import lotr.common.world.biome.LOTRBiomeGenNearHarad;
+import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.*;
 import net.minecraft.world.*;
 import net.minecraft.block.*;
@@ -33,6 +35,14 @@ public class DREntityMumakil extends LOTREntityHorse implements LOTRBiomeGenNear
         super(world);
         this.prevIsChild = true;
         this.setSize(15.0f, 15.0f);
+    }
+
+    protected boolean isMountHostile() {
+        return true;
+    }
+
+    protected EntityAIBase createMountAttackAI() {
+        return new LOTREntityAIAttackOnCollide(this, 1.5, true);
     }
 
 

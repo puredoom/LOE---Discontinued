@@ -8,11 +8,13 @@ import drealm.database.DRRegistry;
 import lotr.common.LOTRMod;
 import lotr.common.LOTRReflection;
 import lotr.common.entity.LOTREntities;
+import lotr.common.entity.ai.LOTREntityAIAttackOnCollide;
 import lotr.common.entity.animal.LOTREntityHorse;
 import lotr.common.entity.npc.LOTRNPCMount;
 import lotr.common.item.LOTRItemMountArmor;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -44,6 +46,14 @@ public class DREntityDunlandBear extends LOTREntityHorse
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(MathHelper.getRandomDoubleInRange(this.rand, 0.12, 0.15));
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(700.0);
+    }
+
+    protected boolean isMountHostile() {
+        return true;
+    }
+
+    protected EntityAIBase createMountAttackAI() {
+        return new LOTREntityAIAttackOnCollide(this, 1.5, true);
     }
 
 

@@ -8,11 +8,13 @@ import drealm.database.DRRegistry;
 import lotr.common.LOTRMod;
 import lotr.common.LOTRReflection;
 import lotr.common.entity.LOTREntities;
+import lotr.common.entity.ai.LOTREntityAIAttackOnCollide;
 import lotr.common.entity.animal.LOTREntityHorse;
 import lotr.common.entity.npc.LOTRNPCMount;
 import lotr.common.item.LOTRItemMountArmor;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -45,6 +47,14 @@ public class DREntityTrollGundabad extends LOTREntityHorse
         this.prevIsChild = true;
         this.setSize(5.0f, 5.0f);
         this.isAttacking = false;
+    }
+
+    protected boolean isMountHostile() {
+        return true;
+    }
+
+    protected EntityAIBase createMountAttackAI() {
+        return new LOTREntityAIAttackOnCollide(this, 1.5, true);
     }
     
     protected void applyEntityAttributes() {
