@@ -11,7 +11,10 @@
 [![Technical Debt][technical_debt_badge]][technical_debt_link]
 [![Lines of Code][lines_of_code_badge]][lines_of_code_link]
 
-Lord of Eldar Mod
+Discontinued LOTR Submod — Expansive Middle-earth Additions
+An ambitious submod for [insert base game here, e.g. Third Age: Total War] that expanded the world of Middle-earth with tons of new content, factions, and gameplay features. Although development has been discontinued, it remains a passion project for fans who want to explore its legacy.
+
+
 
 <!----------------------------------------------------------------------------->
 
