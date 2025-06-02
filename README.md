@@ -12,7 +12,7 @@
 [![Lines of Code][lines_of_code_badge]][lines_of_code_link]
 
 Discontinued LOTR Submod — Expansive Middle-earth Additions
-An ambitious submod for [insert base game here, e.g. Third Age: Total War] that expanded the world of Middle-earth with tons of new content, factions, and gameplay features. Although development has been discontinued, it remains a passion project for fans who want to explore its legacy.
+An ambitious submod for LOTR (Minecraft) that expanded the world of Middle-earth with tons of new content, factions, and gameplay features. Although development has been discontinued, it remains a passion project for fans who want to explore its legacy.
 
 
 
