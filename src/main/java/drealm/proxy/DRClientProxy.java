@@ -41,6 +41,7 @@ public class DRClientProxy extends DRServerProxy implements IResourceManagerRelo
     public void preInit(final FMLPreInitializationEvent event) {
         DRClientProxy.rendererManager = new DRRendererManager();
         RenderingRegistry.registerEntityRenderingHandler((Class)DREntityRedDwarf.class, (Render)new DRRenderDwarf());
+        RenderingRegistry.registerEntityRenderingHandler((Class)DREntityDwarf.class, (Render)new DRRenderDwarf());
         RenderingRegistry.registerEntityRenderingHandler((Class)DREntityRedDwarfSmith.class, (Render)new DRRenderDwarfSmith());
         RenderingRegistry.registerEntityRenderingHandler((Class)DREntityRedDwarfCommander.class, (Render)new DRRenderDwarfCommander());
         RenderingRegistry.registerEntityRenderingHandler((Class)DREntityRedDwarfMerchant.class, (Render)new DRRenderDwarfCommander());
@@ -52,6 +53,7 @@ public class DRClientProxy extends DRServerProxy implements IResourceManagerRelo
         RenderingRegistry.registerEntityRenderingHandler((Class) DREntityWerewolfGondor.class, (Render)new DRRenderWerewolfGondor());
         RenderingRegistry.registerEntityRenderingHandler((Class)DREntityEnt.class,(Render)new DRRenderEnt());
         RenderingRegistry.registerEntityRenderingHandler((Class)DREntityNazgul.class,(Render)new DRRenderNazgul());
+        RenderingRegistry.registerEntityRenderingHandler((Class)DREntityNazgulHorse.class,(Render)new DRRenderNazgulHorse());
         RenderingRegistry.registerEntityRenderingHandler((Class)DREntityBoar.class,(Render)new DRRenderBoar());
         RenderingRegistry.registerEntityRenderingHandler((Class)DREntityRedBeast.class,(Render)new DRRenderRedBeast());
         RenderingRegistry.registerEntityRenderingHandler((Class)DREntityGoat.class,(Render)new DRRenderGoat());

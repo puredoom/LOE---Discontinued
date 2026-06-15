@@ -54,9 +54,16 @@ public class DREntityBoar extends LOTREntityHorse
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(MathHelper.getRandomDoubleInRange(this.rand, 0.12, 0.15));
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(400);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(60.0);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(8.0);
     }
 
+    @Override
+    public IEntityLivingData onSpawnWithEgg(final IEntityLivingData data) {
+        final IEntityLivingData spawnData = super.onSpawnWithEgg(data);
+        this.setGrowingAge(0);
+        return spawnData;
+    }
 
     
     public final double getMountedYOffset() {
@@ -114,14 +121,6 @@ public class DREntityBoar extends LOTREntityHorse
     public void onLivingUpdate() {
         super.onLivingUpdate();
         if (!this.worldObj.isRemote) {
-            if (this.isMountSaddled() && this.getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue() != 120.0) {
-                this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(120.0);
-                this.setHealth(120.0f);
-            }
-            if (!this.isMountSaddled() && this.getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue() != 400.0) {
-                this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(400.0);
-                this.setHealth(400.0f);
-            }
             if (this.riddenByEntity instanceof EntityLivingBase) {
                 final EntityLivingBase rhinoRider = (EntityLivingBase)this.riddenByEntity;
                 final float momentum = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);

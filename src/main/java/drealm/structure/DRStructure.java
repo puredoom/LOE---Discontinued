@@ -32,6 +32,7 @@ public class DRStructure
         registerStructure(DRStructure.id++, (Class<? extends WorldGenerator>)DRStructureRedMountainsHouse.class, "RedMountainsHouse", 5701632, 5701632);
         registerStructure(DRStructure.id++, (Class<? extends WorldGenerator>)DRStructureRedMountainsSmithy.class, "RedMountainsSmithy", 5701632, 5701632);
         registerStructure(DRStructure.id++, (Class<? extends WorldGenerator>)DRStructureRedMountainsStronghold.class, "RedMountainsStronghold", 5701632, 5701632);
+        registerStructure(DRStructure.id++, (Class<? extends WorldGenerator>)lotr.common.world.structure2.LOTRWorldGenDwarvenMineEntrance.class, "DwarvenMineEntrance", 7368816, 11184810);
     }
     
     public static void registerStructure(final int id, final Class<? extends WorldGenerator> strClass, final String name, final int colorBG, final int colorFG) {

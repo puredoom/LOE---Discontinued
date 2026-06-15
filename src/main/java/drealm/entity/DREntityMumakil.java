@@ -52,7 +52,8 @@ public class DREntityMumakil extends LOTREntityHorse implements LOTRBiomeGenNear
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(MathHelper.getRandomDoubleInRange(this.rand, 0.12, 0.15));
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1800.0);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(220.0);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(18.0);
     }
 
     
@@ -120,14 +121,6 @@ public class DREntityMumakil extends LOTREntityHorse implements LOTRBiomeGenNear
          super.onLivingUpdate();
         if (!this.worldObj.isRemote) {
             if (!this.worldObj.isRemote) {
-                if (this.isMountSaddled() && this.getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue() != 400.0) {
-                    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(400.0);
-                    this.setHealth(400.0f);
-                }
-                if (!this.isMountSaddled() && this.getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue() != 1800.0) {
-                    this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1800.0);
-                    this.setHealth(1800.0f);
-                }
            if (this.riddenByEntity instanceof EntityLivingBase) {
                 final EntityLivingBase rhinoRider = (EntityLivingBase)this.riddenByEntity;
                 final float momentum = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
@@ -191,21 +184,7 @@ public class DREntityMumakil extends LOTREntityHorse implements LOTRBiomeGenNear
 
     @Override
     public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-        if (!this.worldObj.isRemote) {
-            data = super.onSpawnWithEgg(data);
-            this.onLOTRHorseSpawn();
-
-            if (this.isMountSaddled()) {
-                this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(400.0);
-            } else {
-                this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1800.0);
-            }
-
-            this.setHealth((float) this.getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue());
-            return data;
-        } else {
-            return data;
-        }
+        return super.onSpawnWithEgg(data);
     }
 
 

@@ -55,6 +55,7 @@ public class DRBiomeRedMountains extends LOTRBiome
         this.decorator.addTree(LOTRTreeType.PINE, 500);
         this.decorator.addRandomStructure((WorldGenerator)new DRStructureRedMountainsStronghold(false), 200);
         this.decorator.addRandomStructure((WorldGenerator)new DRStructureRedMountainsSmithy(false), 75);
+        this.decorator.addRandomStructure((WorldGenerator)new lotr.common.world.structure2.LOTRWorldGenDwarvenMineEntrance(false), 120);
         this.registerMountainsFlowers();
         this.addFlower(LOTRMod.dwarfHerb, 0, 1);
         this.biomeColors.setSky(13541522);

@@ -1,6 +1,8 @@
 package drealm.biome;
 
 
+import drealm.entity.DREntityDwarf;
+import drealm.util.DRCommander;
 import lotr.common.LOTRAchievement;
 import lotr.common.LOTRMod;
 import lotr.common.entity.npc.LOTREntityScrapTrader;
@@ -12,6 +14,7 @@ import lotr.common.world.feature.LOTRWorldGenMountainsideBush;
 import lotr.common.world.map.LOTRWaypoint;
 import lotr.common.world.spawning.LOTRBiomeSpawnList;
 import lotr.common.world.spawning.LOTREventSpawner;
+import lotr.common.world.structure2.LOTRWorldGenDwarvenMineEntrance;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
@@ -25,7 +28,10 @@ public class DRBiomeWindMountains extends LOTRBiome {
         super(i, major);
         spawnableCreatureList.clear();
         npcSpawnList.clear();
-        LOTRBiomeSpawnList.SpawnListContainer[] arrspawnListContainer = new LOTRBiomeSpawnList.SpawnListContainer[1];
+        LOTRBiomeSpawnList.SpawnListContainer[] arrspawnListContainer = {
+                LOTRBiomeSpawnList.entry(DRCommander.newLOTRSpawnList(
+                        new lotr.common.world.spawning.LOTRSpawnEntry(DREntityDwarf.class, 100, 3, 5)), 10)
+        };
         npcSpawnList.newFactionList(600).add(arrspawnListContainer);
         addBiomeVariantSet(LOTRBiomeVariant.SET_MOUNTAINS);
         addBiomeVariant(LOTRBiomeVariant.FOREST_LARCH, 0.3f);
@@ -45,6 +51,7 @@ public class DRBiomeWindMountains extends LOTRBiome {
         decorator.addTree(LOTRTreeType.PINE, 500);
         decorator.addTree(LOTRTreeType.MAPLE, 300);
         registerMountainsFlowers();
+        decorator.addRandomStructure(new LOTRWorldGenDwarvenMineEntrance(false), 120);
         biomeColors.setSky(11653858);
         registerTravellingTrader(LOTREntityScrapTrader.class);
         setBanditChance(LOTREventSpawner.EventChance.BANDIT_RARE);

@@ -139,7 +139,7 @@ public class TestMainMenu extends GuiMainMenu
             final int field_92021_u = (int)ObfuscationReflectionHelper.getPrivateValue((Class)GuiMainMenu.class, (Object)this, new String[] { "field_92021_u" });
             final int field_92020_v = (int)ObfuscationReflectionHelper.getPrivateValue((Class)GuiMainMenu.class, (Object)this, new String[] { "field_92020_v" });
             final int field_92019_w = (int)ObfuscationReflectionHelper.getPrivateValue((Class)GuiMainMenu.class, (Object)this, new String[] { "field_92019_w" });
-            this.drawString(this.fontRendererObj, "Lord of Eldar", 35, this.height * 15 / 16 - 5, -1);
+            this.drawString(this.fontRendererObj, "DwarvenRealms+", 35, this.height * 15 / 16 - 5, -1);
             this.drawString(this.fontRendererObj, "", 35, this.height * 15 / 16 + 5, -1);
             String modSubtitle = StatCollector.translateToLocal("");
             drawString(fontRendererObj, modSubtitle, 7, 150, -1);
